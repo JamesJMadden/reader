@@ -18,8 +18,8 @@
     "build:firefox": "pnpm clean:bundle && turbo ready && cross-env __FIREFOX__=true turbo build",
     "zip": "pnpm build && pnpm -F zipper zip",
     "zip:firefox": "pnpm build:firefox && cross-env __FIREFOX__=true pnpm -F zipper zip",
-    "dev": "turbo ready && cross-env __DEV__=true turbo watch dev --concurrency 20",
-    "dev:firefox": "turbo ready && cross-env __DEV__=true __FIREFOX__=true turbo watch dev --concurrency 20",
+    "client:dev": "turbo ready && cross-env __DEV__=true turbo watch dev --concurrency 20",
+    "client:dev:firefox": "turbo ready && cross-env __DEV__=true __FIREFOX__=true turbo watch dev --concurrency 20",
     "e2e": "pnpm build && pnpm zip && turbo e2e",
     "e2e:firefox": "pnpm build:firefox && pnpm zip:firefox && cross-env __FIREFOX__=true turbo e2e",
     "type-check": "turbo type-check",
@@ -27,9 +27,13 @@
     "lint:fix": "turbo lint:fix --continue -- --fix --cache --cache-location node_modules/.cache/.eslintcache",
     "prettier": "turbo prettier --continue -- --cache --cache-location node_modules/.cache/.prettiercache",
     "prepare": "husky",
-    "update-version": "bash update_version.sh"
+    "update-version": "bash update_version.sh",
+    "server:dev": "ts-node-dev --env-file=./server/.env ./server/src/index.ts"
   },
   "dependencies": {
+    "@fontsource/roboto": "^5.1.0",
+    "@mozilla/readability": "^0.5.0",
+    "googletrans": "^1.0.21",
     "react": "18.3.1",
     "react-dom": "18.3.1"
   },
@@ -57,6 +61,8 @@
     "prettier": "^3.3.3",
     "rimraf": "^6.0.1",
     "tailwindcss": "^3.4.11",
+    "ts-node": "^10.9.2",
+    "ts-node-dev": "^2.0.0",
     "tslib": "^2.6.3",
     "turbo": "^2.0.12",
     "typescript": "5.5.4",

@@ -1,0 +1,13 @@
+
+.audio-player-navigation {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.audio-player-track-info {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    flex: 1;
+    white-space: nowrap;
+}

@@ -18,6 +18,10 @@
     "prettier": "prettier . --write --ignore-path ../../.prettierignore",
     "type-check": "tsc --noEmit"
   },
+  "dependencies": {
+    "@extension/shared": "workspace:*",
+    "@extension/storage": "workspace:*"
+  },
   "devDependencies": {
     "@extension/tsconfig": "workspace:*",
     "@extension/hmr": "workspace:*",

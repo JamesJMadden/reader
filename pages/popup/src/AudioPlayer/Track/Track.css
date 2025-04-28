@@ -1,0 +1,34 @@
+
+.audio-player-track-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.audio-player-track-container input[type="range"] {
+    -webkit-appearance: none;
+    background: rgba(255,255,255,0.3);
+    height: 5px;
+    background-image: linear-gradient(white, white);
+    background-size: 0 100%;
+    background-repeat: no-repeat;
+    cursor: pointer;
+    width: 100%;
+}
+
+.audio-player-track-container input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 2px;
+    height: 10px;
+    padding: 1px;
+    background-color: white;
+    border: 1px solid black;
+}
+
+.audio-player-track-container input[type="range"]::-moz-range-thumb {
+    -webkit-appearance: none;
+    width: 2px;
+    height: 10px;
+    padding: 1px;
+    background-color: white;
+    border: 1px solid black;
+}

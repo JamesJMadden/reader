@@ -1,19 +1,25 @@
+import React from 'react';
 import type { ComponentPropsWithoutRef } from 'react';
-import { cn } from '../utils';
 
-export type ButtonProps = {
-  theme?: 'light' | 'dark';
-} & ComponentPropsWithoutRef<'button'>;
-
-export function Button({ theme, className, children, ...props }: ButtonProps) {
+export function Button({
+  className = '',
+  variant = 'ghost',
+  icon = null,
+  loading = false,
+  disabled,
+  onClick,
+  children,
+}: ComponentPropsWithoutRef<'button'> & {
+  variant?: 'ghost' | 'outline' | 'solid';
+  icon?: React.ReactNode | null;
+  loading?: boolean;
+}) {
   return (
     <button
-      className={cn(
-        className,
-        'py-1 px-4 rounded shadow hover:scale-105',
-        theme === 'light' ? 'bg-white text-black' : 'bg-black text-white',
-      )}
-      {...props}>
+      className={`btn btn-${variant} ${icon && !children ? 'btn-icon' : ''} ${className}`}
+      disabled={disabled}
+      onClick={onClick}>
+      {icon ? <span>{icon}</span> : null}
       {children}
     </button>
   );

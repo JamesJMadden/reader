@@ -1,0 +1,12 @@
+
+.audio-player-track-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.audio-player-controls {
+    display: flex;
+    justify-content: center;
+    gap: 4px;
+}

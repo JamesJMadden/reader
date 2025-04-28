@@ -28,6 +28,7 @@
     "tsc-alias": "^1.8.10"
   },
   "dependencies": {
+    "@heroicons/react": "^2.1.5",
     "clsx": "^2.1.1",
     "tailwind-merge": "^2.4.0"
   }

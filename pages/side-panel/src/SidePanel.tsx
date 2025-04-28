@@ -1,43 +1,25 @@
 import '@src/SidePanel.css';
 import { useStorage, withErrorBoundary, withSuspense } from '@extension/shared';
-import { exampleThemeStorage } from '@extension/storage';
-import type { ComponentPropsWithoutRef } from 'react';
+import { translationStorage } from '@extension/storage';
 
 const SidePanel = () => {
-  const theme = useStorage(exampleThemeStorage);
-  const isLight = theme === 'light';
-  const logo = isLight ? 'side-panel/logo_vertical.svg' : 'side-panel/logo_vertical_dark.svg';
-  const goGithubSite = () =>
-    chrome.tabs.create({ url: 'https://github.com/Jonghakseo/chrome-extension-boilerplate-react-vite' });
+  const storage = useStorage(translationStorage);
+
+  console.log('%c TEST: SidePanel.SidePanel', 'background-color:black;color:green;padding:8px', {
+    storage,
+  });
 
   return (
-    <div className={`App ${isLight ? 'bg-slate-50' : 'bg-gray-800'}`}>
-      <header className={`App-header ${isLight ? 'text-gray-900' : 'text-gray-100'}`}>
-        <button onClick={goGithubSite}>
-          <img src={chrome.runtime.getURL(logo)} className="App-logo" alt="logo" />
-        </button>
-        <p>
-          Edit <code>pages/side-panel/src/SidePanel.tsx</code>
-        </p>
-        <ToggleButton>Toggle theme</ToggleButton>
+    <div className="App bg-gray-800">
+      <header className="App-header text-gray-100">
+        <h1>{storage.translation?.title?.raw[0].map((translation, index) => <p key={index}>{translation[0]}</p>)}</h1>
       </header>
+      <main>
+        <article className="text-left text-gray-100">
+          {storage.translation?.textContent?.raw[0].map((translation, index) => <p key={index}>{translation[0]}</p>)}
+        </article>
+      </main>
     </div>
-  );
-};
-
-const ToggleButton = (props: ComponentPropsWithoutRef<'button'>) => {
-  const theme = useStorage(exampleThemeStorage);
-  return (
-    <button
-      className={
-        props.className +
-        ' ' +
-        'font-bold mt-4 py-1 px-4 rounded shadow hover:scale-105 ' +
-        (theme === 'light' ? 'bg-white text-black' : 'bg-black text-white')
-      }
-      onClick={exampleThemeStorage.toggle}>
-      {props.children}
-    </button>
   );
 };
 

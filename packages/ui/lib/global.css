@@ -1,3 +1,107 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+* {
+    --color-primary: darkseagreen;
+    --color-text-dark: #222222;
+    --gap: 0.5rem;
+    --padding: 0.75rem;
+    --font-size: 1rem;
+    --font-size-large: 1.25rem;
+    --font-size-medium: 1rem;
+    --font-size-small: 0.75rem;
+    --font-size-tiny: 0.5rem;
+}
+
+#app-container {
+    height: 100%;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    background: darkslategrey;
+    background: linear-gradient(0, black 0%, darkslategrey 150%) no-repeat;
+    padding: 12px;
+    height: 100%;
+    justify-content: space-between;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-size: var(--font-size-large);
+}
+
+p {
+    font-size: var(--font-size);
+}
+
+small {
+    font-size: var(--font-size-small);
+}
+
+/* Button Styles */
+.btn {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: var(--gap);
+    margin: 0;
+    padding: 4px 8px 4px 4px;
+    border-radius: 4px;
+    width: fit-content;
+    font-size: var(--font-size);
+    transition: color, background-color 0.2s ease-in;
+}
+
+.btn:hover:not(:disabled) {
+    background-color: rgb(from var(--color-primary) r g b / 10%);
+    color: var(--color-primary);
+}
+
+.btn-icon {
+    width: 34px;
+    height: 34px;
+    flex: 0 1 34px;
+}
+
+.btn svg {
+    width: 24px;
+    height: 24px;
+}
+
+.btn:disabled {
+    opacity: 0.5;
+}
+
+.btn-ghost {
+    background-color: transparent;
+}
+
+.btn-icon.btn-ghost:hover:not(:disabled),
+.btn-icon.btn-ghost:hover:not(:disabled) {
+    background: transparent radial-gradient(closest-side, rgb(121 121 121 / 20%) 0%, rgba(0, 0, 0, 0) 70%);
+    transform: scale(1.05);
+}
+
+.btn-outline {
+    background-color: transparent;
+    border: 1px solid currentColor;
+}
+
+.btn-solid {
+    background-color: var(--color-primary);
+    color: #333333;
+}
+
+select {
+    background: transparent;
+    border-right: 8px solid transparent;
+    outline: 1px solid;
+    height: 34px;
+    border-radius: 4px;
+    padding: 4px 8px;
+    font-size: var(--font-size);
+    cursor: pointer;
+}

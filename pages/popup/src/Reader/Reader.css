@@ -1,0 +1,25 @@
+.reader-action {
+    display: flex;
+    gap: var(--gap);
+}
+
+.reader-header {
+    display: flex;
+    gap: var(--gap);
+}
+
+.reader-header-text {
+    flex: 1 1 auto;
+}
+
+.reader-header-actions {
+    display: flex;
+    /*flex-wrap: wrap;*/
+    justify-content: center;
+    gap: var(--gap);
+    flex: 0 1;
+}
+
+.reader-action > * {
+    flex: 1 1 auto;
+}
